@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tkchat/common/values/values.dart';
 
-///  AppBar
+//AppBar
 AppBar transparentAppBar({
   Widget? title,
   Widget? leading,
@@ -29,7 +29,7 @@ AppBar transparentAppBar({
   );
 }
 
-/// 10像素 Divider
+//Divider
 Widget divider10Px({Color bgColor = AppColors.secondaryElement}) {
   return Container(
     height: 10.w,

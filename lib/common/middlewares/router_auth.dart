@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:tkchat/common/routes/routes.dart';
 import 'package:tkchat/common/store/store.dart';
 
-/// 检查是否登录
+/// Auth page routing actions
 class RouteAuthMiddleware extends GetMiddleware {
-  // priority 数字小优先级高
+  // Number priority --> Small numbers have high priority
   @override
   int? priority = 0;
 

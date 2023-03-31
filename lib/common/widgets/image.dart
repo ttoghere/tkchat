@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tkchat/common/values/values.dart';
 
+//Shows the cached image
 Widget netImageCached(
   String url, {
   double width = 48,

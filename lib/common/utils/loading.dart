@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
+//Loading screen actions
 class Loading {
   Loading() {
     EasyLoading.instance

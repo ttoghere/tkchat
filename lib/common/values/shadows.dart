@@ -1,5 +1,6 @@
 import 'package:flutter/rendering.dart';
 
+//Constants for apps shadows
 class Shadows {
   static const BoxShadow primaryShadow = BoxShadow(
     color: Color.fromARGB(38, 27, 27, 29),

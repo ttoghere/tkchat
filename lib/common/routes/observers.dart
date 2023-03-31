@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'routes.dart';
 
+//This class tracks navigation actions in app and prints results on terminal
 class RouteObservers<R extends Route<dynamic>> extends RouteObserver<R> {
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {

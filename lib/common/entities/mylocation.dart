@@ -8,6 +8,8 @@ MyLocation locationFromJson(String str) => MyLocation.fromJson(json.decode(str))
 
 String locationToJson(MyLocation data) => json.encode(data.toJson());
 
+//This class below are full of location datas methods
+
 class MyLocation {
   MyLocation({
     this.results,

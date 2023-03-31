@@ -7,35 +7,42 @@ import 'package:tkchat/common/values/values.dart';
 class UserStore extends GetxController {
   static UserStore get to => Get.find();
 
-  // 是否登录
+  //Check the users log action
   final _isLogin = false.obs;
-  // 令牌 token
+  //Saves the user token
   String token = '';
-  // 用户 profile
+  //Saves the user profile data
   final _profile = UserLoginResponseEntity().obs;
 
+  //getter for log action
   bool get isLogin => _isLogin.value;
+  //getter for profile data
   UserLoginResponseEntity get profile => _profile.value;
+  //getter for user token
   bool get hasToken => token.isNotEmpty;
 
+  //What happens when this (onInit) method runs.
   @override
   void onInit() {
     super.onInit();
+    //token assings to this variable when it saved on getString key
     token = StorageService.to.getString(STORAGE_USER_TOKEN_KEY);
+    //Call the profile data when the user is offline
     var profileOffline = StorageService.to.getString(STORAGE_USER_PROFILE_KEY);
+    //Profile null safety
     if (profileOffline.isNotEmpty) {
       _isLogin.value = true;
       _profile(UserLoginResponseEntity.fromJson(jsonDecode(profileOffline)));
     }
   }
 
-  // 保存 token
+  //Assigns the token data to a string key
   Future<void> setToken(String value) async {
     await StorageService.to.setString(STORAGE_USER_TOKEN_KEY, value);
     token = value;
   }
 
-  // 获取 profile
+  //Calls the profile data via token
   Future<String> getProfile() async {
     if (token.isEmpty) return "";
     // var result = await UserAPI.profile();
@@ -44,14 +51,14 @@ class UserStore extends GetxController {
    return StorageService.to.getString(STORAGE_USER_PROFILE_KEY);
   }
 
-  // 保存 profile
+  //Saves the profile data to database via http
   Future<void> saveProfile(UserLoginResponseEntity profile) async {
     _isLogin.value = true;
     StorageService.to.setString(STORAGE_USER_PROFILE_KEY, jsonEncode(profile));
     setToken(profile.accessToken!);
   }
 
-  // 注销
+  // Http Logout method
   Future<void> onLogout() async {
    // if (_isLogin.value) await UserAPI.logout();
     await StorageService.to.remove(STORAGE_USER_TOKEN_KEY);

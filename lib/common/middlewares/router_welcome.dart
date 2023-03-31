@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:tkchat/common/routes/routes.dart';
 import 'package:tkchat/common/store/store.dart';
 
-/// 第一次欢迎页面
+///Welcome Page routing actions
 class RouteWelcomeMiddleware extends GetMiddleware {
-  // priority 数字小优先级高
+  // Number priority --> Small numbers have high priority
   @override
   int? priority = 0;
 

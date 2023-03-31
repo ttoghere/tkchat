@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tkchat/common/values/values.dart';
 
-///
+///Extracted multi detailed button with dependant parameters
 Widget btnFlatButtonWidget({
   required VoidCallback onPressed,
   double width = 140,
@@ -94,10 +94,10 @@ Widget btnFlatButtonBorderOnlyWidget({
           borderRadius: Radii.k6pxRadius,
         )),
       ),
+      onPressed: onPressed,
       child: Image.asset(
         "assets/images/icons-$iconFileName.png",
       ),
-      onPressed: onPressed,
     ),
   );
 }

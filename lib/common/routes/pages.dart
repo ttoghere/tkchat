@@ -1,11 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:tkchat/common/middlewares/middlewares.dart';
-
 import 'package:get/get.dart';
+import 'package:tkchat/pages/welcome/index.dart';
+
 
 import 'routes.dart';
 
+//This app shows us the page list in app
 class AppPages {
   static const INITIAL = AppRoutes.INITIAL;
   static const APPlication = AppRoutes.Application;
@@ -13,15 +14,13 @@ class AppPages {
   static List<String> history = [];
 
   static final List<GetPage> routes = [
-   /*
     GetPage(
       name: AppRoutes.INITIAL,
       page: () => WelcomePage(),
       binding: WelcomeBinding(),
-      middlewares: [
-        RouteWelcomeMiddleware(priority: 1),
-      ],
     ),
+    /*
+  
     GetPage(
       name: AppRoutes.SIGN_IN,
       page: () => SignInPage(),
@@ -50,10 +49,4 @@ class AppPages {
 
     GetPage(name: AppRoutes.Photoimgview, page: () => PhotoImgViewPage(), binding: PhotoImgViewBinding()),*/
   ];
-
-
-
-
-
-
 }
