@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-//This class helps to clean app from SharedPreferences extra methods
 class StorageService extends GetxService {
   static StorageService get to => Get.find();
   late final SharedPreferences _prefs;

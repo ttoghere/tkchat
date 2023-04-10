@@ -13,7 +13,6 @@ class Msgcontent {
     this.addtime,
   });
 
-  //Gets data from cloud firestore
   factory Msgcontent.fromFirestore(
       DocumentSnapshot<Map<String, dynamic>> snapshot,
       SnapshotOptions? options,
@@ -27,7 +26,6 @@ class Msgcontent {
     );
   }
 
-  //Posts data to cloud firestore
   Map<String, dynamic> toFirestore() {
     return {
       if (uid != null) "uid": uid,

@@ -19,7 +19,6 @@ class UserData {
     this.addtime,
   });
 
-  //Gets data from cloud firestore
   factory UserData.fromFirestore(
       DocumentSnapshot<Map<String, dynamic>> snapshot,
       SnapshotOptions? options,
@@ -36,7 +35,6 @@ class UserData {
     );
   }
 
-  //Posts data to cloud firestore
   Map<String, dynamic> toFirestore() {
     return {
       if (id != null) "id": id,

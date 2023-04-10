@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tkchat/common/common.dart';
+
 import 'package:get/get.dart';
 import 'package:package_info/package_info.dart';
-import 'package:tkchat/common/services/services.dart';
-import 'package:tkchat/common/values/values.dart';
 
 class ConfigStore extends GetxController {
   static ConfigStore get to => Get.find();
@@ -27,12 +27,11 @@ class ConfigStore extends GetxController {
     _platform = await PackageInfo.fromPlatform();
   }
 
-  //Saves the logged in status to a key
+  // 标记用户已打开APP
   Future<bool> saveAlreadyOpen() {
     return StorageService.to.setBool(STORAGE_DEVICE_FIRST_OPEN_KEY, true);
   }
 
-  //Determines the application language according to the device language
   void onInitLocale() {
     var langCode = StorageService.to.getString(STORAGE_LANGUAGE_CODE);
     if (langCode.isEmpty) return;
@@ -43,7 +42,6 @@ class ConfigStore extends GetxController {
     locale = languages[index];
   }
 
-  //Changes the language what app uses before its run
   void onLocaleUpdate(Locale value) {
     locale = value;
     Get.updateLocale(value);

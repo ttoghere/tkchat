@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyC8HH7fvsvGXnwYhA55tv_93ipD7asTNMg',
-    appId: '1:414652358620:android:6b25b629b622494f4f7919',
+    appId: '1:414652358620:android:2e575d704d2b2fe34f7919',
     messagingSenderId: '414652358620',
     projectId: 'tkchat-739d2',
     storageBucket: 'tkchat-739d2.appspot.com',
@@ -59,7 +59,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBNPIOPE8keS_SGyCAIhs2FOk0a_YmQsBo',
-    appId: '1:414652358620:ios:eb2964fe4257d8a04f7919',
+    appId: '1:414652358620:ios:a60d80cec4b624234f7919',
     messagingSenderId: '414652358620',
     projectId: 'tkchat-739d2',
     storageBucket: 'tkchat-739d2.appspot.com',

@@ -1,12 +1,12 @@
 import 'dart:async';
+
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+import 'package:tkchat/common/common.dart';
+
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart' hide FormData;
-import 'package:tkchat/common/store/store.dart';
-import 'package:tkchat/common/utils/utils.dart';
-import 'package:tkchat/common/values/values.dart';
 
 /*
   * http 操作类

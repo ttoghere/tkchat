@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tkchat/common/routes/routes.dart';
-import 'package:tkchat/common/store/store.dart';
+import 'package:tkchat/common/common.dart';
 
-///Welcome Page routing actions
+import 'package:get/get.dart';
+import 'dart:developer';
+/// first welcome page
 class RouteWelcomeMiddleware extends GetMiddleware {
-  // Number priority --> Small numbers have high priority
+  // Small numbers have high priority
   @override
   int? priority = 0;
 
@@ -13,13 +13,13 @@ class RouteWelcomeMiddleware extends GetMiddleware {
 
   @override
   RouteSettings? redirect(String? route) {
-    print(ConfigStore.to.isFirstOpen);
+    log(ConfigStore.to.isFirstOpen.toString());
     if (ConfigStore.to.isFirstOpen == false) {
       return null;
     } else if (UserStore.to.isLogin == true) {
-      return RouteSettings(name: AppRoutes.Application);
+      return const RouteSettings(name: AppRoutes.Application);
     } else {
-      return RouteSettings(name: AppRoutes.SIGN_IN);
+      return const RouteSettings(name: AppRoutes.SIGN_IN);
     }
   }
 }

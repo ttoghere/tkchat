@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-//Shows us the apps icons styles
 class Iconfont {
     // iconName: share
   static const share = IconData(

@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'routes.dart';
+import 'dart:developer';
 
-//This class tracks navigation actions in app and prints results on terminal
 class RouteObservers<R extends Route<dynamic>> extends RouteObserver<R> {
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPush(route, previousRoute);
     var name = route.settings.name ?? '';
     if (name.isNotEmpty) AppPages.history.add(name);
-    print('didPush');
-    print(AppPages.history);
+    log('didPush');
+    log(AppPages.history.toString());
   }
 
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPop(route, previousRoute);
     AppPages.history.remove(route.settings.name);
-    print('didPop');
-    print(AppPages.history);
+    log('didPop');
+    log(AppPages.history.toString());
   }
 
   @override
@@ -36,16 +36,16 @@ class RouteObservers<R extends Route<dynamic>> extends RouteObserver<R> {
         }
       }
     }
-    print('didReplace');
-    print(AppPages.history);
+    log('didReplace');
+    log(AppPages.history.toString());
   }
 
   @override
   void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didRemove(route, previousRoute);
     AppPages.history.remove(route.settings.name);
-    print('didRemove');
-    print(AppPages.history);
+    log('didRemove');
+    log(AppPages.history.toString());
   }
 
   @override

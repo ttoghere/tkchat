@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'color.dart';
 
-//This class show us the theme constants 
 class AppTheme {
   static const horizontalMargin = 16.0;
   static const radius = 10.0;

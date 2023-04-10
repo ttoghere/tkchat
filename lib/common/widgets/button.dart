@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tkchat/common/common.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tkchat/common/values/values.dart';
 
-///Extracted multi detailed button with dependant parameters
+///
 Widget btnFlatButtonWidget({
   required VoidCallback onPressed,
   double width = 140,
@@ -14,7 +14,7 @@ Widget btnFlatButtonWidget({
   String fontName = "Montserrat",
   FontWeight fontWeight = FontWeight.w400,
 }) {
-  return SizedBox(
+  return Container(
     width: width.w,
     height: height.h,
     child: TextButton(
@@ -39,11 +39,10 @@ Widget btnFlatButtonWidget({
           }
           return gbColor;
         }),
-        shape: MaterialStateProperty.all(const RoundedRectangleBorder(
+        shape: MaterialStateProperty.all(RoundedRectangleBorder(
           borderRadius: Radii.k6pxRadius,
         )),
       ),
-      onPressed: onPressed,
       child: Text(
         title,
         textAlign: TextAlign.center,
@@ -54,6 +53,7 @@ Widget btnFlatButtonWidget({
           height: 1,
         ),
       ),
+      onPressed: onPressed,
     ),
   );
 }
@@ -90,14 +90,14 @@ Widget btnFlatButtonBorderOnlyWidget({
         //   }
         //   return AppColors.primaryElement;
         // }),
-        shape: MaterialStateProperty.all(const RoundedRectangleBorder(
+        shape: MaterialStateProperty.all(RoundedRectangleBorder(
           borderRadius: Radii.k6pxRadius,
         )),
       ),
-      onPressed: onPressed,
       child: Image.asset(
         "assets/images/icons-$iconFileName.png",
       ),
+      onPressed: onPressed,
     ),
   );
 }

@@ -1,4 +1,3 @@
-//This class variables show us the determined page route names
 class AppRoutes {
   static const INITIAL = '/';
   static const SIGN_IN = '/sign_in';

@@ -23,7 +23,6 @@ class Msg {
     this.msg_num,
   });
 
-  //Gets data from cloud firestore
   factory Msg.fromFirestore(
       DocumentSnapshot<Map<String, dynamic>> snapshot,
       SnapshotOptions? options,
@@ -42,7 +41,6 @@ class Msg {
     );
   }
 
-  //Posts data to cloud firestore
   Map<String, dynamic> toFirestore() {
     return {
       if (from_uid != null) "from_uid": from_uid,
