@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:tkchat/common/common.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +16,7 @@ Widget inputTextEdit({
   return Container(
     height: 44.h,
     margin: EdgeInsets.only(top: marginTop.h),
-    decoration: BoxDecoration(
+    decoration: const BoxDecoration(
       color: AppColors.secondaryElement,
       borderRadius: Radii.k6pxRadius,
     ),
@@ -24,7 +26,7 @@ Widget inputTextEdit({
       keyboardType: keyboardType,
       decoration: InputDecoration(
         hintText: hintText,
-        contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        contentPadding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         border: InputBorder.none,
       ),
       style: TextStyle(
@@ -50,7 +52,7 @@ Widget inputEmailEdit({
   return Container(
     height: 44.h,
     margin: EdgeInsets.only(top: marginTop.h),
-    decoration: BoxDecoration(
+    decoration: const BoxDecoration(
       color: AppColors.primaryBackground,
       borderRadius: Radii.k6pxRadius,
       boxShadow: [
@@ -67,9 +69,9 @@ Widget inputEmailEdit({
       keyboardType: keyboardType,
       decoration: InputDecoration(
         hintText: hintText,
-        contentPadding: EdgeInsets.fromLTRB(20, 10, 0, 9),
+        contentPadding: const EdgeInsets.fromLTRB(20, 10, 0, 9),
         border: InputBorder.none,
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           color: AppColors.primaryText,
         ),
       ),
