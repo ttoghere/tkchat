@@ -27,7 +27,7 @@ class ConfigStore extends GetxController {
     _platform = await PackageInfo.fromPlatform();
   }
 
-  // 标记用户已打开APP
+  // Storing user information where that user has opened or not via shared preferences
   Future<bool> saveAlreadyOpen() {
     return StorageService.to.setBool(STORAGE_DEVICE_FIRST_OPEN_KEY, true);
   }

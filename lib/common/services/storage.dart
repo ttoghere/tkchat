@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+//This class is for holds tidy Shared Preferences methods
 class StorageService extends GetxService {
   static StorageService get to => Get.find();
   late final SharedPreferences _prefs;
 
+  //Runs the SharedPreferences for app
   Future<StorageService> init() async {
     _prefs = await SharedPreferences.getInstance();
     return this;

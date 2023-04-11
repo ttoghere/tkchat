@@ -12,6 +12,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await Get.putAsync<StorageService>(() => StorageService().init());
+  Get.put<ConfigStore>(ConfigStore());
+  Get.put<UserStore>(UserStore());
   runApp(const MyApp());
 }
 
@@ -40,4 +43,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

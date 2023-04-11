@@ -73,7 +73,9 @@ class WelcomePage extends GetView<WelcomeController> {
                                 color: Colors.white,
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              controller.handleSignIn();
+                            },
                             child: const Text("Login"),
                           ),
                         )

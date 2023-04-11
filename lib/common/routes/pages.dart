@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tkchat/common/common.dart';
 
 import 'package:get/get.dart';
+import 'package:tkchat/pages/sign_in/index.dart';
 import 'package:tkchat/pages/welcome/index.dart';
 
 import 'routes.dart';
@@ -18,13 +19,13 @@ class AppPages {
       page: () => WelcomePage(),
       binding: WelcomeBinding(),
     ),
-    /*
-
     GetPage(
       name: AppRoutes.SIGN_IN,
       page: () => SignInPage(),
       binding: SignInBinding(),
     ),
+    /*
+
 
     // check if needed to login or not
     GetPage(
