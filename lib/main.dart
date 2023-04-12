@@ -1,5 +1,3 @@
-// ignore_for_file: depend_on_referenced_packages
-
 import 'package:flutter/material.dart';
 import 'package:tkchat/common/common.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:tkchat/pages/chat/controller.dart';
+import 'package:tkchat/pages/message/chat/controller.dart';
 
 class ChatBinding implements Bindings {
   @override

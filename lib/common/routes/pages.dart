@@ -3,13 +3,11 @@ import 'package:tkchat/common/common.dart';
 
 import 'package:get/get.dart';
 import 'package:tkchat/pages/application/index.dart';
-import 'package:tkchat/pages/chat/index.dart';
+import 'package:tkchat/pages/message/chat/index.dart';
 import 'package:tkchat/pages/contact/index.dart';
 import 'package:tkchat/pages/sign_in/index.dart';
 import 'package:tkchat/pages/welcome/index.dart';
-
-import 'routes.dart';
-
+  
 class AppPages {
   static const INITIAL = AppRoutes.INITIAL;
   static const APPlication = AppRoutes.Application;
