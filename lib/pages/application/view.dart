@@ -5,6 +5,7 @@ import 'package:tkchat/common/values/values.dart';
 import 'package:tkchat/pages/application/index.dart';
 import 'package:tkchat/pages/contact/index.dart';
 import 'package:tkchat/pages/message/index.dart';
+import 'package:tkchat/pages/profile/index.dart';
 
 class ApplicationPage extends GetView<ApplicationController> {
   @override
@@ -23,11 +24,7 @@ class ApplicationPage extends GetView<ApplicationController> {
       children: const [
         MessagePage(),
         ContactPage(),
-        Center(
-          child: SizedBox(
-            child: Text("Profile"),
-          ),
-        ),
+        ProfilePage(),
       ],
     );
   }

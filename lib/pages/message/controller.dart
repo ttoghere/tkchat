@@ -1,6 +1,8 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:tkchat/common/common.dart';
@@ -68,7 +70,21 @@ class MessageController extends GetxController {
           }
         }
       }
-    } catch (e) {}
+    } catch (e) {
+      log("Error: $e");
+    }
+  }
+
+  getFcmToken() async {
+    final fcmToken = await FirebaseMessaging.instance.getToken();
+    if (fcmToken != null) {
+      var user =
+          await db.collection("users").where("id", isEqualTo: token).get();
+      if (user.docs.isNotEmpty) {
+        var doc_id = user.docs.first.id;
+        await db.collection("users").doc(doc_id).update({"fcmtoken": fcmToken});
+      }
+    }
   }
 
   void onRefresh() {
@@ -90,6 +106,7 @@ class MessageController extends GetxController {
   @override
   void onReady() {
     getUserLocation();
+    getFcmToken();
     super.onReady();
   }
 }

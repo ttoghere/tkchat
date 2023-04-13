@@ -91,6 +91,7 @@ class ChatController extends GetxController {
       onError: (value) => log("Listen Failed: $value"),
       onDone: () => log("Listen Success"),
     );
+    getNavLocation();
   }
 
   @override
@@ -169,5 +170,24 @@ class ChatController extends GetxController {
       "last_msg": "[image]",
       "last_time": Timestamp.now(),
     });
+  }
+
+  getNavLocation() async {
+    try {
+      var user_location = await db
+          .collection("users")
+          .where("id", isEqualTo: state.to_uid.value)
+          .withConverter(
+            fromFirestore: UserData.fromFirestore,
+            toFirestore: (UserData data, options) => data.toFirestore(),
+          )
+          .get();
+      var location = user_location.docs.first.data().location;
+      if (location != "") {
+        state.to_location.value = location ?? "Unknown";
+      }
+    } catch (e) {
+      log("We have an error $e");
+    }
   }
 }

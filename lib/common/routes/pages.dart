@@ -5,9 +5,12 @@ import 'package:get/get.dart';
 import 'package:tkchat/pages/application/index.dart';
 import 'package:tkchat/pages/message/chat/index.dart';
 import 'package:tkchat/pages/contact/index.dart';
+import 'package:tkchat/pages/message/photo_view/index.dart';
+import 'package:tkchat/pages/message/view.dart';
+import 'package:tkchat/pages/profile/index.dart';
 import 'package:tkchat/pages/sign_in/index.dart';
 import 'package:tkchat/pages/welcome/index.dart';
-  
+
 class AppPages {
   static const INITIAL = AppRoutes.INITIAL;
   static const APPlication = AppRoutes.Application;
@@ -17,7 +20,7 @@ class AppPages {
   static final List<GetPage> routes = [
     GetPage(
       name: AppRoutes.INITIAL,
-      page: () => WelcomePage(),
+      page: () => const WelcomePage(),
       binding: WelcomeBinding(),
       middlewares: [
         RouteWelcomeMiddleware(priority: 1),
@@ -38,14 +41,29 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.Contact,
-      page: () => ContactPage(),
+      page: () => const ContactPage(),
       binding: ContactBinding(),
     ),
     GetPage(
       name: AppRoutes.Chat,
-      page: () => ChatPage(),
+      page: () => const ChatPage(),
       binding: ChatBinding(),
     ),
+    GetPage(
+      name: AppRoutes.Photoimgview,
+      page: () => const PhotoImgViewPage(),
+      binding: PhotoImgViewBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.Me,
+      page: () => const ProfilePage(),
+      binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.Message,
+      page: () => const MessagePage(),
+    )
+
     /*
 
 
@@ -65,10 +83,10 @@ class AppPages {
     //消息
     GetPage(name: AppRoutes.Message, page: () => MessagePage(), binding: MessageBinding()),
     //我的
-    GetPage(name: AppRoutes.Me, page: () => MePage(), binding: MeBinding()),
+
     //聊天详情
     GetPage(name: AppRoutes.Chat, page: () => ChatPage(), binding: ChatBinding()),
 
-    GetPage(name: AppRoutes.Photoimgview, page: () => PhotoImgViewPage(), binding: PhotoImgViewBinding()),*/
+    */
   ];
 }

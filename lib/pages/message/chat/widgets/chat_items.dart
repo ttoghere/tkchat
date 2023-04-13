@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import 'package:tkchat/common/common.dart';
 
@@ -61,7 +62,10 @@ class ChatRightItem extends StatelessWidget {
                         maxWidth: 90.w,
                       ),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Get.toNamed(AppRoutes.Photoimgview,
+                              parameters: {"url": item.content ?? ""});
+                        },
                         child: CachedNetworkImage(imageUrl: "${item.content}"),
                       ),
                     ),
@@ -127,7 +131,10 @@ class ChatLeftItem extends StatelessWidget {
                         maxWidth: 90.w,
                       ),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Get.toNamed(AppRoutes.Photoimgview,
+                              parameters: {"url": item.content ?? ""});
+                        },
                         child: CachedNetworkImage(imageUrl: "${item.content}"),
                       ),
                     ),
