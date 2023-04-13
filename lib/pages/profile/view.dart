@@ -16,6 +16,14 @@ class ProfilePage extends GetView<ProfileController> {
           slivers: [
             SliverPadding(
               padding: EdgeInsets.symmetric(vertical: 0.w, horizontal: 0.w),
+              sliver: SliverToBoxAdapter(
+                child: controller.state.head_detail.value == null
+                    ? Container()
+                    : HeadItem(controller.state.head_detail.value!),
+              ),
+            ),
+            SliverPadding(
+              padding: EdgeInsets.symmetric(vertical: 0.w, horizontal: 0.w),
               sliver: SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
@@ -53,35 +61,151 @@ class ProfilePage extends GetView<ProfileController> {
       padding: EdgeInsets.only(top: 0.w, left: 15.w, right: 15.w),
       child: InkWell(
         onTap: () {
-          Get.toNamed(item.route!);
+          if (item.route == "/logout") {
+            controller.onLogOut();
+          }
         },
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              height: 56.w,
-              child: Image(
-                image: AssetImage(item.icon ?? ""),
-                width: 40.w,
-                height: 40.w,
-              ),
-            ),
-            SizedBox(
-              width: 14.w,
-            ),
-            SizedBox(
-              child: Text(
-                item.name ?? "",
-                style: TextStyle(
-                  color: AppColors.thirdElement,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15.sp,
-                ),
-              ),
+            _itemLabel(item),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  child: Image.asset(
+                    "assets/icons/ang.png",
+                    width: 15.w,
+                    height: 15.w,
+                  ),
+                )
+              ],
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Row _itemLabel(MeListItem item) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SizedBox(
+          height: 56.w,
+          child: Image(
+            image: AssetImage(item.icon ?? ""),
+            width: 40.w,
+            height: 40.w,
+          ),
+        ),
+        SizedBox(
+          width: 14.w,
+        ),
+        SizedBox(
+          child: Text(
+            item.name ?? "",
+            style: TextStyle(
+              color: AppColors.thirdElement,
+              fontWeight: FontWeight.bold,
+              fontSize: 15.sp,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget HeadItem(UserLoginResponseEntity item) {
+    return Container(
+      margin: EdgeInsets.only(
+        bottom: 30.w,
+      ),
+      padding:
+          EdgeInsets.only(top: 30.w, left: 15.w, right: 15.w, bottom: 15.w),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(0),
+        boxShadow: const [
+          BoxShadow(
+            color: AppColors.tabCellSeparator,
+            offset: Offset(0.0, 5.0),
+            blurRadius: 15.0,
+            spreadRadius: 1.0,
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              InkWell(
+                onTap: () {},
+                child: SizedBox(
+                  width: 54.w,
+                  height: 54.w,
+                  child: netImageCached(
+                    item.photoUrl ?? "",
+                    width: 54.w,
+                    height: 54.w,
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 250.w,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(
+                        top: 5.w,
+                        left: 15.w,
+                        right: 0.w,
+                        bottom: 0.w,
+                      ),
+                      alignment: Alignment.centerLeft,
+                      width: 190.w,
+                      height: 54.w,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            item.displayName ?? "",
+                            overflow: TextOverflow.clip,
+                            style: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Avenir",
+                              color: AppColors.thirdElement,
+                            ),
+                          ),
+                          Text(
+                            "ID: ${item.accessToken}" ?? "",
+                            overflow: TextOverflow.clip,
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.normal,
+                              fontFamily: "Avenir",
+                              color: AppColors.thirdElementText,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ],
       ),
     );
   }

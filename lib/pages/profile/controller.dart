@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -20,6 +21,12 @@ class ProfileController extends GetxController {
           UserLoginResponseEntity.fromJson(jsonDecode(profile));
       state.head_detail.value = userdata;
     }
+  }
+
+  Future<void> onLogOut() async {
+    UserStore.to.onLogout();
+    await _googleSignIn.signOut();
+    Get.offAndToNamed(AppRoutes.SIGN_IN);
   }
 
   @override
