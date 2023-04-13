@@ -1,3 +1,5 @@
+// ignore_for_file: overridden_fields, depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:tkchat/common/common.dart';
 

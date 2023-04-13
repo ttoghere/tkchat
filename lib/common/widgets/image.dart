@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:tkchat/common/common.dart';
@@ -24,7 +26,7 @@ Widget netImageCached(
         ),
       ),
     ),
-    errorWidget: (context, url, error) => Image(
+    errorWidget: (context, url, error) => const Image(
       image: AssetImage('assets/images/feature-1.png'),
     ),
   );

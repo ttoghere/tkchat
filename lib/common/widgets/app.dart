@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tkchat/common/common.dart';
+
 ///  AppBar
 AppBar transparentAppBar({
   Widget? title,
@@ -13,16 +14,14 @@ AppBar transparentAppBar({
     flexibleSpace: Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(colors: [
-          Color.fromARGB(255, 176, 106, 231),
-          Color.fromARGB(255, 166, 112, 232),
-          Color.fromARGB(255, 131, 123, 232),
-          Color.fromARGB(255, 104, 132, 231),
-        ],transform: GradientRotation(90)),
+          Colors.red[300]!,
+          Colors.red[500]!,
+          Colors.red[700]!,
+          Colors.red[900]!,
+        ], transform: const GradientRotation(75)),
       ),
     ),
-    title: title != null
-        ? Center(child: title)
-        : null,
+    title: title != null ? Center(child: title) : null,
     leading: leading,
     actions: actions,
   );

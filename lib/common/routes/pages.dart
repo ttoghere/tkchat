@@ -1,10 +1,15 @@
-
 import 'package:flutter/material.dart';
 import 'package:tkchat/common/common.dart';
 
 import 'package:get/get.dart';
-
-import 'routes.dart';
+import 'package:tkchat/pages/application/index.dart';
+import 'package:tkchat/pages/message/chat/index.dart';
+import 'package:tkchat/pages/contact/index.dart';
+import 'package:tkchat/pages/message/photo_view/index.dart';
+import 'package:tkchat/pages/message/view.dart';
+import 'package:tkchat/pages/profile/index.dart';
+import 'package:tkchat/pages/sign_in/index.dart';
+import 'package:tkchat/pages/welcome/index.dart';
 
 class AppPages {
   static const INITIAL = AppRoutes.INITIAL;
@@ -13,10 +18,9 @@ class AppPages {
   static List<String> history = [];
 
   static final List<GetPage> routes = [
-   /*
     GetPage(
       name: AppRoutes.INITIAL,
-      page: () => WelcomePage(),
+      page: () => const WelcomePage(),
       binding: WelcomeBinding(),
       middlewares: [
         RouteWelcomeMiddleware(priority: 1),
@@ -27,6 +31,41 @@ class AppPages {
       page: () => SignInPage(),
       binding: SignInBinding(),
     ),
+    GetPage(
+      name: AppRoutes.Application,
+      page: () => ApplicationPage(),
+      binding: ApplicationBinding(),
+      // middlewares: [
+      //   RouteAuthMiddleware(priority: 1),
+      // ],
+    ),
+    GetPage(
+      name: AppRoutes.Contact,
+      page: () => const ContactPage(),
+      binding: ContactBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.Chat,
+      page: () => const ChatPage(),
+      binding: ChatBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.Photoimgview,
+      page: () => const PhotoImgViewPage(),
+      binding: PhotoImgViewBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.Me,
+      page: () => const ProfilePage(),
+      binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.Message,
+      page: () => const MessagePage(),
+    )
+
+    /*
+
 
     // check if needed to login or not
     GetPage(
@@ -44,16 +83,10 @@ class AppPages {
     //消息
     GetPage(name: AppRoutes.Message, page: () => MessagePage(), binding: MessageBinding()),
     //我的
-    GetPage(name: AppRoutes.Me, page: () => MePage(), binding: MeBinding()),
+
     //聊天详情
     GetPage(name: AppRoutes.Chat, page: () => ChatPage(), binding: ChatBinding()),
 
-    GetPage(name: AppRoutes.Photoimgview, page: () => PhotoImgViewPage(), binding: PhotoImgViewBinding()),*/
+    */
   ];
-
-
-
-
-
-
 }
