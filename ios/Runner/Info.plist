@@ -64,5 +64,11 @@
     <string>This app requires access to the camera</string>
     <key>NSMicrophoneUsageDescription</key>
     <string>This app does not require access to the microphone</string>
+	<key>NSLocationUsageDescription</key>
+	<string>My description about why I need this capability</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>My description about why I need this capability</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>My description about why I need this capability</string>
 </dict>
 </plist>

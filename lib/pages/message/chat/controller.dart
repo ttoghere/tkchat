@@ -70,7 +70,7 @@ class ChatController extends GetxController {
         .withConverter(
             fromFirestore: Msgcontent.fromFirestore,
             toFirestore: (Msgcontent msg, options) => msg.toFirestore())
-        .orderBy("addtime", descending: true);
+        .orderBy("addtime", descending: false);
     state.msgContentList.clear();
     listener = messages.snapshots().listen(
       (event) {
@@ -111,13 +111,63 @@ class ChatController extends GetxController {
     }
   }
 
+  Future getImgUrl(String name) async {
+    final spaceRef = FirebaseStorage.instance.ref("chat").child(name);
+    var str = await spaceRef.getDownloadURL();
+    return str;
+  }
+
   Future uploadFile() async {
     if (_photo == null) return;
     final fileName = getRandomString(15) + extension(_photo!.path);
     try {
       final ref = FirebaseStorage.instance.ref("chat").child(fileName);
+      await ref.putFile(_photo!).snapshotEvents.listen((event) async {
+        switch (event.state) {
+          case TaskState.paused:
+            break;
+          case TaskState.running:
+            break;
+          case TaskState.success:
+            String url = await getImgUrl(fileName);
+            sendImageMessage(url);
+            break;
+          case TaskState.canceled:
+            break;
+          case TaskState.error:
+            break;
+        }
+      });
     } catch (e) {
       log("There is an error $e");
     }
+  }
+
+  sendImageMessage(String url) async {
+    final content = Msgcontent(
+      uid: user_id,
+      content: url,
+      type: "image",
+      addtime: Timestamp.now(),
+    );
+
+    await db
+        .collection("message")
+        .doc(doc_id)
+        .collection("msglist")
+        .withConverter(
+          fromFirestore: Msgcontent.fromFirestore,
+          toFirestore: (Msgcontent msg, options) => msg.toFirestore(),
+        )
+        .add(content)
+        .then((DocumentReference doc) {
+      log("Document Snapshot added with id, ${doc.id}");
+      textController.clear();
+      Get.focusScope?.unfocus();
+    });
+    await db.collection("message").doc(doc_id).update({
+      "last_msg": "[image]",
+      "last_time": Timestamp.now(),
+    });
   }
 }

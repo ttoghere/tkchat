@@ -7,6 +7,8 @@ import 'package:tkchat/pages/contact/index.dart';
 import 'package:tkchat/pages/contact/widgets/contact_list.dart';
 
 class ContactPage extends GetView<ContactController> {
+  const ContactPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

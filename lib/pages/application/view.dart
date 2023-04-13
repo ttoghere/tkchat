@@ -4,6 +4,7 @@ import 'package:tkchat/common/style/style.dart';
 import 'package:tkchat/common/values/values.dart';
 import 'package:tkchat/pages/application/index.dart';
 import 'package:tkchat/pages/contact/index.dart';
+import 'package:tkchat/pages/message/index.dart';
 
 class ApplicationPage extends GetView<ApplicationController> {
   @override
@@ -19,14 +20,10 @@ class ApplicationPage extends GetView<ApplicationController> {
       physics: const NeverScrollableScrollPhysics(),
       controller: controller.pageController,
       onPageChanged: controller.handPageChanged,
-      children: [
-        const Center(
-          child: SizedBox(
-            child: Text("Chat"),
-          ),
-        ),
+      children: const [
+        MessagePage(),
         ContactPage(),
-        const Center(
+        Center(
           child: SizedBox(
             child: Text("Profile"),
           ),
