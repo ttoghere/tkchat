@@ -179,17 +179,17 @@ class ChatPage extends GetView<ChatController> {
                       fontSize: 16.sp,
                     ),
                   ),
-                  Text(
-                    controller.state.to_location.value,
-                    overflow: TextOverflow.clip,
-                    maxLines: 1,
-                    style: TextStyle(
-                      fontFamily: "Avenir",
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.primaryBackground,
-                      fontSize: 14.sp,
-                    ),
-                  ),
+                  // Text(
+                  //   controller.state.to_location.value,
+                  //   overflow: TextOverflow.clip,
+                  //   maxLines: 1,
+                  //   style: TextStyle(
+                  //     fontFamily: "Avenir",
+                  //     fontWeight: FontWeight.bold,
+                  //     color: AppColors.primaryBackground,
+                  //     fontSize: 14.sp,
+                  //   ),
+                  // ),
                 ],
               ),
             ),

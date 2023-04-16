@@ -51,22 +51,35 @@ class MessageController extends GetxController {
   getUserLocation() async {
     try {
       final location = await Location().getLocation();
+      log("location 1");
       String address = "${location.latitude}, ${location.longitude}]";
+      log("address: $address");
       String url =
-          "https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${Platform.isIOS ? mapsIos : mapsAndroid}";
+          "https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=$mapsAndroid";
       var response = await HttpUtil().get(url);
+      log("location 2");
+
       MyLocation location_res = MyLocation.fromJson(response);
+      log("location 3");
+
       if (location_res.status == "OK") {
         String? myAddress = location_res.results?.first.formattedAddress;
+        log("location 4");
+
         if (myAddress != null) {
+          log("location 5");
+
           var user_location =
               await db.collection("users").where("id", isEqualTo: token).get();
           if (user_location.docs.isNotEmpty) {
+            log("location 6");
+
             var doc_id = user_location.docs.first.id;
             await db
                 .collection("users")
                 .doc(doc_id)
                 .update({"location": myAddress});
+            log("location 7");
           }
         }
       }

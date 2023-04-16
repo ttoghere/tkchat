@@ -123,7 +123,7 @@ class ChatController extends GetxController {
     final fileName = getRandomString(15) + extension(_photo!.path);
     try {
       final ref = FirebaseStorage.instance.ref("chat").child(fileName);
-      await ref.putFile(_photo!).snapshotEvents.listen((event) async {
+      ref.putFile(_photo!).snapshotEvents.listen((event) async {
         switch (event.state) {
           case TaskState.paused:
             break;
@@ -182,9 +182,13 @@ class ChatController extends GetxController {
             toFirestore: (UserData data, options) => data.toFirestore(),
           )
           .get();
+      log("Location nav 1");
       var location = user_location.docs.first.data().location;
+      log("Location nav 2");
+
       if (location != "") {
         state.to_location.value = location ?? "Unknown";
+        log("Location nav 3");
       }
     } catch (e) {
       log("We have an error $e");
